@@ -43,35 +43,35 @@ with open(csvpath) as csvfile:
 
         else:
 
-            # Compute change in profit loss 
+            #Compute change in profit loss 
             change_profit_loss = current_month_profit_loss - previous_month_profit_loss
 
-            # Append each month to the months[]
+            #Append each month to the months[]
             total_months.append(row[0])
 
-            # Append each change_profit_losses to the change_profit_losses[]
+            #Append each change_profit_losses to the change_profit_losses[]
             change_profit_losses.append(change_profit_loss)
 
-            # Make the current_month_loss to be previous_month_profit_loss for the next loop
+            #Make the current_month_loss to be previous_month_profit_loss for the next loop
             previous_month_profit_loss = current_month_profit_loss
 
     #sum and average of the changes in "Profit/Losses" over the entire period
     sum_profit_loss = sum(change_profit_losses)
     average_profit_loss = round(sum_profit_loss/(count_months - 1), 2)
 
-    # highest and lowest changes in "Profit/Losses" over the entire period
+    #highest and lowest changes in "Profit/Losses" over the entire period
     highest_change = max(change_profit_losses)
     lowest_change = min(change_profit_losses)
 
-    # Locate the index value of highest and lowest changes in "Profit/Losses" over the entire period
+    #Locate the index value of highest and lowest changes in "Profit/Losses" over the entire period
     highest_month_index = change_profit_losses.index(highest_change)
     lowest_month_index = change_profit_losses.index(lowest_change)
 
-    # Assign best and worst month
+    #Assign best and worst month
     best_month = total_months[highest_month_index]
     worst_month = total_months[lowest_month_index]
 
-# -->>  Print the analysis to the terminal
+#Print the analysis to the terminal
 print("Financial Analysis")
 print("----------------------------")
 print(f"Total Months:  {count_months}")
@@ -79,4 +79,17 @@ print(f"Total:  ${net_profit_loss}")
 print(f"Average Change:  ${average_profit_loss}")
 print(f"Greatest Increase in Profits:  {best_month} (${highest_change})")
 print(f"Greatest Decrease in Losses:  {worst_month} (${lowest_change})")
+
+
+#Print to a text file: financial_analysis.txt
+with open('financial_analysis.txt', 'w') as text:
+    text.write("Financial Analysis\n")
+    text.write("----------------------------\n")
+    text.write(f"Total Months:  {count_months}\n")
+    text.write(f"Total:  ${net_profit_loss}\n")
+    text.write(f"Average Change:  ${average_profit_loss}\n")
+    text.write(f"Greatest Increase in Profits:  {best_month} (${highest_change})\n")
+    text.write(f"Greatest Decrease in Losses:  {worst_month} (${lowest_change})\n")
+
+
 
