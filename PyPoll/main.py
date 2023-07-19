@@ -3,7 +3,7 @@ import os
 import csv
 
 #Set path
-csvfile = os.path.join("..", "Resources", "election_data.csv")
+csvfile = os.path.join("Resources", "election_data.csv")
 
 
 #Set variables
