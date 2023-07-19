@@ -3,7 +3,7 @@ import os
 import csv
 
 #Set path
-csvpath = os.path.join("..", "Resources", "budget_data.csv")
+csvpath = os.path.join("Resources", "budget_data.csv")
 
 #Create a list to store the data
 budget_data = []
