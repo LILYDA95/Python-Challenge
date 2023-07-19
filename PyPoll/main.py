@@ -3,7 +3,8 @@ import os
 import csv
 
 #Set path
-csvfile = "/Users/lilyda/Python-Challenge/PyPoll/Resources/election_data.csv"
+csvfile = os.path.join("..", "Resources", "election_data.csv")
+
 
 #Set variables
 count = 0
